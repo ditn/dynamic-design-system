@@ -3,7 +3,6 @@ package dev.adambennett.design.system.frontend
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,7 +12,6 @@ import androidx.compose.foundation.text.BasicText
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonConstants.defaultButtonColors
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -67,14 +65,14 @@ private fun MainLayout(click: () -> Unit = {}) {
                 modifier = Modifier.fillMaxWidth().padding(16.dp),
                 click = click
             ) {
-                Text(text = "Load theme")
+                DesignSystemText(text = "Load theme")
             }
         }
     }
 }
 
 @Composable
-private fun DesignSystemSurface(modifier: Modifier, content: @Composable () -> Unit) {
+private fun DesignSystemSurface(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
     Surface(
         modifier = modifier,
         color = DesignSystemTheme.colors.surface,
@@ -84,7 +82,7 @@ private fun DesignSystemSurface(modifier: Modifier, content: @Composable () -> U
 
 @Composable
 private fun DesignSystemButton(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     click: () -> Unit,
     content: @Composable RowScope.() -> Unit,
 ) {
@@ -101,7 +99,7 @@ private fun DesignSystemButton(
 
 @Composable
 private fun DesignSystemText(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     text: String,
 ) {
     BasicText(
